@@ -1,678 +1,1084 @@
-openapi: 3.1.0
-x-stoplight:
-  id: ovs3sg8xg5m6z
-info:
-  title: MedewerkersAPI
-  version: '1.0'
-servers:
-  - url: 'http://localhost/api'
-paths:
-  /mrc/employees:
-    get:
-      summary: GET employees
-      tags:
-        - Employee
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Employee'
-      operationId: get-employees
-      description: 'All properties that the entity Employee holds. An Employee is a human with goals, skills and/or interests.'
-    post:
-      summary: POST employee
-      operationId: post-employees
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Employee'
-      description: 'All properties that the entity Employee holds. An Employee is a human with goals, skills and/or interests.'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Employee'
-      tags:
-        - Employee
-    parameters: []
-  '/mrc/employees/{id}':
-    parameters:
-      - schema:
-          type: string
-        name: id
-        in: path
-        required: true
-    get:
-      summary: GET employee
-      tags:
-        - Employee
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Employee'
-      operationId: get-employees-id
-      description: 'All properties that the entity Employee holds. An Employee is a human with goals, skills and/or interests.'
-    put:
-      summary: PUT employee
-      operationId: put-employees-id
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Employee'
-      description: 'All properties that the entity Employee holds. An Employee is a human with goals, skills and/or interests.'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Employee'
-      tags:
-        - Employee
-    delete:
-      summary: DELETE employee
-      operationId: delete-employees-id
-      responses:
-        '200':
-          description: OK
-      description: 'All properties that the entity Employee holds. An Employee is a human with goals, skills and/or interests.'
-      tags:
-        - Employee
-  /mrc/job_functions:
-    get:
-      summary: GET job functions
-      tags:
-        - JobFunction
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/JobFunction'
-      operationId: get-jobFunctions
-    post:
-      summary: POST job function
-      operationId: post-jobFunctions
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/JobFunction'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/JobFunction'
-      tags:
-        - JobFunction
-    parameters: []
-  '/mrc/job_functions/{id}':
-    parameters:
-      - schema:
-          type: string
-        name: id
-        in: path
-        required: true
-    get:
-      summary: GET job function
-      tags:
-        - JobFunction
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/JobFunction'
-      operationId: get-job_functions-id
-    put:
-      summary: PUT job function
-      operationId: put-job_functions-id
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/JobFunction'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/JobFunction'
-      tags:
-        - JobFunction
-    delete:
-      summary: DELETE job function
-      operationId: delete-job_functions-id
-      responses:
-        '200':
-          description: OK
-      tags:
-        - JobFunction
-  /mrc/educations:
-    get:
-      summary: GET educations
-      tags:
-        - Education
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Education'
-      operationId: get-educations
-    post:
-      summary: POST education
-      operationId: post-educations
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Education'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Education'
-      tags:
-        - Education
-    parameters: []
-  '/mrc/educations/{id}':
-    parameters:
-      - schema:
-          type: string
-        name: id
-        in: path
-        required: true
-    get:
-      summary: GET education
-      tags:
-        - Education
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Education'
-      operationId: get-educations-id
-    put:
-      summary: PUT education
-      operationId: put-educations-id
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Education'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Education'
-      tags:
-        - Education
-    delete:
-      summary: DELETE education
-      operationId: delete-educations-id
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Education
-  /mrc/skills:
-    get:
-      summary: GET skills
-      tags:
-        - Skill
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Skill'
-      operationId: get-skills
-    post:
-      summary: POST skill
-      operationId: post-skills
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Skill'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Skill'
-      tags:
-        - Skill
-    parameters: []
-  '/mrc/skills/{id}':
-    parameters:
-      - schema:
-          type: string
-        name: id
-        in: path
-        required: true
-    get:
-      summary: GET skill
-      tags:
-        - Skill
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Skill'
-      operationId: get-skills-id
-    put:
-      summary: PUT skill
-      operationId: put-skills-id
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Skill'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Skill'
-      tags:
-        - Skill
-    delete:
-      summary: DELETE skill
-      operationId: delete-skills-id
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Skill
-  /mrc/interests:
-    get:
-      summary: GET interests
-      tags:
-        - Interest
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Interest'
-      operationId: get-interests
-    post:
-      summary: POST interest
-      operationId: post-interests
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Interest'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Interest'
-      tags:
-        - Interest
-    parameters: []
-  '/mrc/interests/{id}':
-    parameters:
-      - schema:
-          type: string
-        name: id
-        in: path
-        required: true
-    get:
-      summary: GET interest
-      tags:
-        - Interest
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Interest'
-      operationId: get-interests-id
-    put:
-      summary: PUT interest
-      operationId: put-interests-id
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Interest'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Interest'
-      tags:
-        - Interest
-    delete:
-      summary: DELETE interest
-      operationId: delete-interests-id
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Interest
-  /mrc/competencies:
-    get:
-      summary: GET competencies
-      tags:
-        - Competence
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Competence'
-      operationId: get-competencies
-    post:
-      summary: POST competence
-      operationId: post-competencies
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Competence'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Competence'
-      tags:
-        - Competence
-    parameters: []
-  '/mrc/competencies/{id}':
-    parameters:
-      - schema:
-          type: string
-        name: id
-        in: path
-        required: true
-    get:
-      summary: GET competence
-      tags:
-        - Competence
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Competence'
-      operationId: get-competencies-id
-    put:
-      summary: PUT competence
-      operationId: put-competencies-id
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Competence'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Competence'
-      tags:
-        - Competence
-    delete:
-      summary: DELETE competence
-      operationId: delete-competencies-id
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Competence
-components:
-  schemas:
-    Employee:
-      title: Employee
-      x-stoplight:
-        id: 9wfk0nep3l915
-      type: object
-      description: 'All properties that the entity Employee holds. An Employee is a human with goals, skills and/or interests.'
-      properties:
-        person:
-          type: string
-          description: The person that is employed
-        organization:
-          type: string
-          description: The organisation where this person is employed
-        jobFunctions:
-          type: array
-          items:
-            $ref: '#/components/schemas/JobFunction'
-        educations:
-          type: array
-          items:
-            $ref: '#/components/schemas/Education'
-        skills:
-          type: array
-          items:
-            $ref: '#/components/schemas/Skill'
-        interests:
-          type: array
-          items:
-            $ref: '#/components/schemas/Interest'
-        competencies:
-          type: array
-          items:
-            $ref: '#/components/schemas/Competence'
-        workLocation:
-          $ref: '#/components/schemas/Location'
-        availability:
-          type: object
-          properties:
-            monday:
-              $ref: '#/components/schemas/Availability'
-            tuesday:
-              $ref: '#/components/schemas/Availability'
-            wednesday:
-              $ref: '#/components/schemas/Availability'
-            thursday:
-              $ref: '#/components/schemas/Availability'
-            friday:
-              $ref: '#/components/schemas/Availability'
-            saturday:
-              $ref: '#/components/schemas/Availability'
-            sunday:
-              $ref: '#/components/schemas/Availability'
-    Education:
-      title: Education
-      x-stoplight:
-        id: telvjlcxcs8fm
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        endDate:
-          type: string
-          format: date-time
-        institution:
-          type: string
-        degreeGrantedStatus:
-          type: string
-          enum:
-            - Granted
-            - notGranted
-        iscedEducationLevelCode:
-          type: string
-      required:
-        - name
-    JobFunction:
-      title: JobFunction
-      x-stoplight:
-        id: 577ow9rrp0nf9
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        esco:
-          type: string
-        department:
-          type: string
-        manager:
-          $ref: '#/components/schemas/Employee'
-        replacementColleagues:
-          type: array
-          items:
-            $ref: '#/components/schemas/Employee'
-      required:
-        - name
-        - description
-    Skill:
-      title: Skill
-      x-stoplight:
-        id: q6lrxcf4bm7l1
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        level:
-          type: string
-          enum:
-            - beginner
-            - intermediate
-            - advanced
-        esco:
-          type: string
-      required:
-        - name
-        - description
-        - level
-      examples:
-        - name: string
-          description: string
-          level: beginner
-          esco: string
-    Interest:
-      title: Interest
-      x-stoplight:
-        id: 20ajnz3jd2lkc
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-      required:
-        - name
-        - description
-    Competence:
-      title: Competency
-      x-stoplight:
-        id: i5o8vvqfox7ql
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        grade:
-          type: string
-      required:
-        - name
-        - description
-        - grade
-    Location:
-      title: Location
-      x-stoplight:
-        id: yj946epe708ew
-      type: object
-      properties:
-        name:
-          type: string
-        street:
-          type: string
-        houseNumber:
-          type: number
-        houseNumberSuffix:
-          type: string
-        postalCode:
-          type: string
-        locality:
-          type: string
-        department:
-          type: string
-        buildingLevel:
-          type: number
-        roomNumber:
-          type: string
-      required:
-        - name
-    Availability:
-      title: Availability
-      x-stoplight:
-        id: e1vhv4sixxy87
-      type: object
-      properties:
-        startTime:
-          type: string
-        endTime:
-          type: string
-        freebusy:
-          type: string
-          enum:
-            - FREE'
-            - BUSY
-      required:
-        - startTime
-        - endTime
-        - freebusy
+{
+  "openapi": "3.1.0",
+  "x-stoplight": {
+    "id": "ovs3sg8xg5m6z"
+  },
+  "info": {
+    "title": "MedewerkersAPI",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost/api"
+    }
+  ],
+  "paths": {
+    "/mrc/employees": {
+      "get": {
+        "summary": "GET employees",
+        "tags": [
+          "Employee"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Employee"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-employees",
+        "description": "All properties that the entity Employee holds. An Employee is a human with goals, skills and/or interests."
+      },
+      "post": {
+        "summary": "POST employee",
+        "operationId": "post-employees",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Employee"
+                }
+              }
+            }
+          }
+        },
+        "description": "All properties that the entity Employee holds. An Employee is a human with goals, skills and/or interests.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Employee"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Employee"
+        ]
+      },
+      "parameters": []
+    },
+    "/mrc/employees/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "GET employee",
+        "tags": [
+          "Employee"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Employee"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-employees-id",
+        "description": "All properties that the entity Employee holds. An Employee is a human with goals, skills and/or interests."
+      },
+      "put": {
+        "summary": "PUT employee",
+        "operationId": "put-employees-id",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Employee"
+                }
+              }
+            }
+          }
+        },
+        "description": "All properties that the entity Employee holds. An Employee is a human with goals, skills and/or interests.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Employee"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Employee"
+        ]
+      },
+      "delete": {
+        "summary": "DELETE employee",
+        "operationId": "delete-employees-id",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "All properties that the entity Employee holds. An Employee is a human with goals, skills and/or interests.",
+        "tags": [
+          "Employee"
+        ]
+      }
+    },
+    "/mrc/job_functions": {
+      "get": {
+        "summary": "GET job functions",
+        "tags": [
+          "JobFunction"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/JobFunction"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-jobFunctions"
+      },
+      "post": {
+        "summary": "POST job function",
+        "operationId": "post-jobFunctions",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobFunction"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobFunction"
+              }
+            }
+          }
+        },
+        "tags": [
+          "JobFunction"
+        ]
+      },
+      "parameters": []
+    },
+    "/mrc/job_functions/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "GET job function",
+        "tags": [
+          "JobFunction"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobFunction"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-job_functions-id"
+      },
+      "put": {
+        "summary": "PUT job function",
+        "operationId": "put-job_functions-id",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobFunction"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobFunction"
+              }
+            }
+          }
+        },
+        "tags": [
+          "JobFunction"
+        ]
+      },
+      "delete": {
+        "summary": "DELETE job function",
+        "operationId": "delete-job_functions-id",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "JobFunction"
+        ]
+      }
+    },
+    "/mrc/educations": {
+      "get": {
+        "summary": "GET educations",
+        "tags": [
+          "Education"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Education"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-educations"
+      },
+      "post": {
+        "summary": "POST education",
+        "operationId": "post-educations",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Education"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Education"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Education"
+        ]
+      },
+      "parameters": []
+    },
+    "/mrc/educations/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "GET education",
+        "tags": [
+          "Education"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Education"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-educations-id"
+      },
+      "put": {
+        "summary": "PUT education",
+        "operationId": "put-educations-id",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Education"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Education"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Education"
+        ]
+      },
+      "delete": {
+        "summary": "DELETE education",
+        "operationId": "delete-educations-id",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "Education"
+        ]
+      }
+    },
+    "/mrc/skills": {
+      "get": {
+        "summary": "GET skills",
+        "tags": [
+          "Skill"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Skill"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-skills"
+      },
+      "post": {
+        "summary": "POST skill",
+        "operationId": "post-skills",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Skill"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Skill"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Skill"
+        ]
+      },
+      "parameters": []
+    },
+    "/mrc/skills/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "GET skill",
+        "tags": [
+          "Skill"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Skill"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-skills-id"
+      },
+      "put": {
+        "summary": "PUT skill",
+        "operationId": "put-skills-id",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Skill"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Skill"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Skill"
+        ]
+      },
+      "delete": {
+        "summary": "DELETE skill",
+        "operationId": "delete-skills-id",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "Skill"
+        ]
+      }
+    },
+    "/mrc/interests": {
+      "get": {
+        "summary": "GET interests",
+        "tags": [
+          "Interest"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Interest"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-interests"
+      },
+      "post": {
+        "summary": "POST interest",
+        "operationId": "post-interests",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Interest"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Interest"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Interest"
+        ]
+      },
+      "parameters": []
+    },
+    "/mrc/interests/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "GET interest",
+        "tags": [
+          "Interest"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Interest"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-interests-id"
+      },
+      "put": {
+        "summary": "PUT interest",
+        "operationId": "put-interests-id",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Interest"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Interest"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Interest"
+        ]
+      },
+      "delete": {
+        "summary": "DELETE interest",
+        "operationId": "delete-interests-id",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "Interest"
+        ]
+      }
+    },
+    "/mrc/competencies": {
+      "get": {
+        "summary": "GET competencies",
+        "tags": [
+          "Competence"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Competence"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-competencies"
+      },
+      "post": {
+        "summary": "POST competence",
+        "operationId": "post-competencies",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Competence"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Competence"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Competence"
+        ]
+      },
+      "parameters": []
+    },
+    "/mrc/competencies/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "GET competence",
+        "tags": [
+          "Competence"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Competence"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-competencies-id"
+      },
+      "put": {
+        "summary": "PUT competence",
+        "operationId": "put-competencies-id",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Competence"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Competence"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Competence"
+        ]
+      },
+      "delete": {
+        "summary": "DELETE competence",
+        "operationId": "delete-competencies-id",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "Competence"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Employee": {
+        "title": "Employee",
+        "x-stoplight": {
+          "id": "9wfk0nep3l915"
+        },
+        "type": "object",
+        "description": "All properties that the entity Employee holds. An Employee is a human with goals, skills and/or interests.",
+        "properties": {
+          "person": {
+            "type": "string",
+            "description": "The person that is employed"
+          },
+          "organization": {
+            "type": "string",
+            "description": "The organisation where this person is employed"
+          },
+          "jobFunctions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JobFunction"
+            }
+          },
+          "educations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Education"
+            }
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Skill"
+            }
+          },
+          "interests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Interest"
+            }
+          },
+          "competencies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Competence"
+            }
+          },
+          "workLocation": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "availability": {
+            "type": "object",
+            "properties": {
+              "monday": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Availability"
+                }
+              },
+              "tuesday": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Availability"
+                }
+              },
+              "wednesday": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Availability"
+                }
+              },
+              "thursday": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Availability"
+                }
+              },
+              "friday": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Availability"
+                }
+              },
+              "saturday": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Availability"
+                }
+              },
+              "sunday": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Availability"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Education": {
+        "title": "Education",
+        "x-stoplight": {
+          "id": "telvjlcxcs8fm"
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "institution": {
+            "type": "string"
+          },
+          "degreeGrantedStatus": {
+            "type": "string",
+            "enum": [
+              "Granted",
+              "notGranted"
+            ]
+          },
+          "iscedEducationLevelCode": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "JobFunction": {
+        "title": "JobFunction",
+        "x-stoplight": {
+          "id": "577ow9rrp0nf9"
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "esco": {
+            "type": "string"
+          },
+          "department": {
+            "type": "string"
+          },
+          "manager": {
+            "$ref": "#/components/schemas/Employee"
+          },
+          "replacementColleagues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Employee"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "description"
+        ]
+      },
+      "Skill": {
+        "title": "Skill",
+        "x-stoplight": {
+          "id": "q6lrxcf4bm7l1"
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "beginner",
+              "intermediate",
+              "advanced"
+            ]
+          },
+          "esco": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "level"
+        ],
+        "examples": [
+          {
+            "name": "string",
+            "description": "string",
+            "level": "beginner",
+            "esco": "string"
+          }
+        ]
+      },
+      "Interest": {
+        "title": "Interest",
+        "x-stoplight": {
+          "id": "20ajnz3jd2lkc"
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "description"
+        ]
+      },
+      "Competence": {
+        "title": "Competency",
+        "x-stoplight": {
+          "id": "i5o8vvqfox7ql"
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "grade": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "grade"
+        ]
+      },
+      "Location": {
+        "title": "Location",
+        "x-stoplight": {
+          "id": "yj946epe708ew"
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "houseNumber": {
+            "type": "number"
+          },
+          "houseNumberSuffix": {
+            "type": "string"
+          },
+          "postalCode": {
+            "type": "string"
+          },
+          "locality": {
+            "type": "string"
+          },
+          "department": {
+            "type": "string"
+          },
+          "buildingLevel": {
+            "type": "number"
+          },
+          "roomNumber": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "Availability": {
+        "title": "Availability",
+        "x-stoplight": {
+          "id": "e1vhv4sixxy87"
+        },
+        "type": "object",
+        "properties": {
+          "startTime": {
+            "type": "string"
+          },
+          "endTime": {
+            "type": "string"
+          },
+          "freebusy": {
+            "type": "string",
+            "enum": [
+              "FREE'",
+              "BUSY"
+            ]
+          }
+        },
+        "required": [
+          "startTime",
+          "endTime",
+          "freebusy"
+        ]
+      }
+    }
+  }
+}
